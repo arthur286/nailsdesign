@@ -195,7 +195,8 @@ section {
     flex: 1;
 }
 
-.image-placeholder {
+
+    .image-placeholder {
     background-color: var(--rosa-principal);
     border-radius: 15px;
     height: 250px;
@@ -206,7 +207,37 @@ section {
     color: var(--rosa-escuro);
     font-size: 1rem;
     box-shadow: 0 10px 30px rgba(231, 84, 128, 0.15);
+    overflow: hidden; /* Garante que a imagem não vaze */
+    position: relative;
 }
+
+/* Estilo para a imagem dentro do placeholder */
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher sem distorcer */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Ajuste para o ícone e texto quando NÃO tem imagem */
+.image-placeholder i,
+.image-placeholder p {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Quando a imagem está presente, esconder ícone e texto */
+.image-placeholder img + i,
+.image-placeholder img + i + p {
+    display: none;
+}
+
 
 .image-placeholder i {
     font-size: 4rem;
